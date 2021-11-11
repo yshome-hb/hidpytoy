@@ -50,7 +50,7 @@ class MyHIDToyWindow(Ui_HIDToyWindow):
         devs.sort( key=lambda x: (x['vendor_id'],x['product_id'],x.get('usage',0)), reverse=True )
         for d in devs:
            # str = f"vid/pid:{d['vendor_id']}/{d['product_id']} usage:{d['usage_page']}/{d['usage']} {d['manufacturer_string']} {d['product_string']}"
-            str = f"{d['manufacturer_string']} {d['product_string']}  vid/pid:{d['vendor_id']}/{d['product_id']} usage:{d['usage_page']}/{d['usage']} "
+            str = f"{d['manufacturer_string']} {d['product_string']}  vid/pid:{hex(d['vendor_id'])}/{hex(d['product_id'])} usage:{hex(d['usage_page'])}/{hex(d['usage'])} "
             self.deviceList.addItem(str,d['path'])
 
     def status(self,str):
